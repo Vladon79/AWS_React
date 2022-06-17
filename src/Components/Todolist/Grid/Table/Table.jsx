@@ -35,7 +35,7 @@ const Table = (task) => {
 
 	return (
 		<div className={s.grid}>
-			<Modal title="Delete task" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}></Modal>
+			<Modal title="Delete this task?" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} okText="Yes" cancelText="No"></Modal>
 			<div className={s.name}>
 				{!onChangeTaskName ? (
 					<p onDoubleClick={() => setOnChangeTaskName(true)}>{task.title}</p>

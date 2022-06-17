@@ -14,9 +14,6 @@ export const todolistReducer = (state = [], action) => {
 		case "ADD_TASK": {
 			return [action.task, ...state]
 		}
-		case "CHECK_TASK": {
-			return state.map((t) => (t._id === action.task._id ? action.task : t))
-		}
 		case "UPDATE_TASK": {
 			return state.map((t) => (t.id === action.task.id ? action.task : t))
 		}
@@ -45,12 +42,6 @@ export const addTaskAC = (task) => {
 	}
 }
 
-export const checkTaskAC = (task) => {
-	return {
-		type: "CHECK_TASK",
-		task
-	}
-}
 export const updateTaskAC = (task) => {
 	return {
 		type: "UPDATE_TASK",
@@ -64,7 +55,6 @@ export const getTasks = (pageCount, page, filter, sortName, findByName) => async
 		const res = await tasksAPI.getTasks(pageCount, page, filter, sortName, findByName.name, findByName.method)
 		if (res.status === 200) {
 			dispatch(getTasksAC(res.data.body.todolist.Items))
-			// console.log(res.data.body.)
 			dispatch(getGridOptionAC(res.data.body.tasksCount, res.data.body.pageCount, res.data.body.page))
 		} else {
 			message.error("Error")
@@ -82,7 +72,6 @@ export const addTask = (title, date) => async (dispatch, getState) => {
 		const res = await tasksAPI.addTask(title, date)
 		if (res.status === 200) {
 			message.success(`Task ${title} has been added`)
-			// dispatch(addTaskAC(res.data))
 			const state = getState()
 			const gridState = state.grid
 			await dispatch(getTasks(gridState.pageCount, gridState.page, gridState.filter, gridState.sort, gridState.findByName))

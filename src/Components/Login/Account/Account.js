@@ -54,10 +54,11 @@ const Account = (props) => {
 			const authDetails = new AuthenticationDetails({ Username, Password })
 			user.authenticateUser(authDetails, {
 				onSuccess: (data) => {
-					console.log("onSuccess: ", data)
 					dispatch(setPaginatorAC(false))
 					if (data.idToken.payload.email_verified === false) {
 						message.error(`You email not verified. Please go to your email ${data.idToken.payload.email}`)
+						dispatch(setEmail(data.idToken.payload.email))
+						dispatch(isAuthAC("email_verified"))
 						reject({ message: "Error. You email not verified" })
 					} else {
 						dispatch(setEmail(data.idToken.payload.email))
@@ -66,12 +67,10 @@ const Account = (props) => {
 					}
 				},
 				onFailure: (err) => {
-					console.error("onFailure: ", err)
 					dispatch(setPaginatorAC(false))
 					reject(err)
 				},
 				newPasswordRequired: (data) => {
-					console.log("newPasswordRequired: ", data)
 					dispatch(setPaginatorAC(false))
 					resolve(data)
 				}

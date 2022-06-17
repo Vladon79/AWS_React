@@ -4,7 +4,7 @@ import "./index.css"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 import { store } from "./store/store"
-import AppTest from "./app/AppTest"
+import App from "./app/App"
 import { Account } from "./Components/Login/Account/Account"
 import 'antd/dist/antd.css'
 
@@ -13,7 +13,7 @@ root.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<Account>
-				<AppTest />
+				<App />
 			</Account>
 		</BrowserRouter>
 	</Provider>
