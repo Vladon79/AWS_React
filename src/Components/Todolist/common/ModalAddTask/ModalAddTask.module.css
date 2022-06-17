@@ -1,0 +1,13 @@
+.modalContainer{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input{
+	margin:10px;
+}
+
+.dataPiker{
+	margin:10px;
+}

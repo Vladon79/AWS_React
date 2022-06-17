@@ -1,0 +1,33 @@
+header {
+	display: flex;
+	color: #f9f9f9;
+	background-color: #000000c5;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	width: 100%;
+	min-height: 50px;
+}
+
+.name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	width: 30%;
+	cursor: pointer;
+}
+
+.data {
+	margin-right: 5px;
+	width: 20%;
+	cursor: pointer;
+}
+.check {
+	width: 35%;
+}
+
+.delete {
+	margin-right: 10px;
+	width: 10%;
+}

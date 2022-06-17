@@ -1,0 +1,12 @@
+.inputSection {
+	min-width: 200px;
+	margin-top: 10px;
+}
+
+.inputError {
+	color: #ff4d4f;
+}
+
+.notErrorBlock{
+    height: 22px;
+}
