@@ -68,6 +68,8 @@ const Account = (props) => {
 				},
 				onFailure: (err) => {
 					dispatch(setPaginatorAC(false))
+					message.error(err.message)
+					console.log(err)
 					reject(err)
 				},
 				newPasswordRequired: (data) => {

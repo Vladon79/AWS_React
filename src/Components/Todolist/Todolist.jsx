@@ -29,7 +29,7 @@ const Todolist = () => {
 	const rerenderPage = () => {
 		dispatch(setFilterAC("All"))
 		dispatch(setNameSortAC(""))
-		dispatch(findByNameAC({ name: "", method: "Equals" }))
+		dispatch(findByNameAC({ name: "", method: "" }))
 		dispatch(setGridPageAC(1))
 	}
 

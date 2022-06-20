@@ -1,4 +1,4 @@
-import { Button } from "antd"
+import { Button, message } from "antd"
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import { useInput } from "../../../hooks/useInput"
@@ -23,9 +23,12 @@ const RegistrPage = () => {
 		event.preventDefault()
 		UserPool.signUp(email.value, password.value, [], null, (err, data) => {
 			if (err) {
-				console.error(err)
+				message.error(err.message)
+			} else {
+				navigate("/login")
+				message.success("User created, go to your mail")
+				console.log(data)
 			}
-			console.log(data)
 		})
 	}
 

@@ -8,6 +8,7 @@ import MyPopover from "./Popover/MyPopover"
 
 const Header = () => {
 	const spin = useSelector((state) => state.spin)
+	const filter = useSelector((state) => state.grid.filter)
 
 	const { Option } = Select
 	const handleChange = (value) => {
@@ -76,7 +77,7 @@ const Header = () => {
 			</div>
 			<div className={s.check}>
 				<Select
-					defaultValue="All"
+					value={filter}
 					style={{
 						width: 100
 					}}
